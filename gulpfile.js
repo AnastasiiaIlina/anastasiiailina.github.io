@@ -4,6 +4,7 @@ const browserSync = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
 const babel = require('gulp-babel');
 const minify = require('gulp-babel-minify');
+const concat = require('gulp-concat');
 
 function styles() {
     return gulp.src('src/scss/**/*.scss')
@@ -19,6 +20,7 @@ function scripts() {
         presets: ['env']
     }))
     .pipe(minify())
+    .pipe(concat('script.js'))
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
 }

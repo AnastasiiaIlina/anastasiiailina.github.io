@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 // form.submit();
             } else {
                 return false;
-            }
-        }, 2000);   
+            } 
+        }, 2000);
     }
 
     form.addEventListener('submit', (e) => validateForm(e));
@@ -96,9 +96,16 @@ document.addEventListener("DOMContentLoaded", function() {
         center: [37.772137, -122.403360],
         zoom: 35,
         zoomControl:false 
-      });
+    });
 
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png').addTo(map);
+    let filter = [
+        'grayscale: 100%'
+    ];
+    
+   L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+        attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
+        filter: filter,
+    }).addTo(map);
 
     const markerIcon = L.icon({
         iconUrl: './dist/assets/marker.svg',
