@@ -1,0 +1,365 @@
+// vars
+$inactive: #A6A6A6;
+$red: #FF5A5F;
+$black: #212121;
+
+// mixins
+@mixin placeholder {
+      ::-webkit-input-placeholder {
+            color: $inactive;
+            font: 500 16px/100%  'Raleway', sans-serif;
+      }
+      ::-moz-placeholder {
+            color: $inactive;
+            font: 500 16px/100%  'Raleway', sans-serif;
+      }
+      :-ms-input-placeholder {
+            color: $inactive;
+            font: 500 16px/100%  'Raleway', sans-serif;
+      }
+      :-moz-placeholder {
+            color: $inactive;
+            font: 500 16px/100%  'Raleway', sans-serif;
+      }
+}
+
+// general
+body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+     
+      * {
+            box-sizing: border-box; 
+      }
+
+      p {
+            margin: 0;
+      }
+
+      .align-center {
+            display: flex;
+            align-items: center;
+      }
+}
+
+.container {
+      max-width: 1147px;
+      margin: 0 auto; 
+
+      .button {
+            background: $red;
+            border-radius: 4px;
+            height: 52px;
+            font: bold 16px/52px 'Raleway', sans-serif;
+            text-align: center;
+            color: #FFFFFF;
+            border: none;
+            padding: 0 1.75em;
+            cursor: pointer;
+      }
+}
+
+header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 45px 0 40px 0;
+      font-size: 16px;
+
+      .logo {
+            max-width: 142px;
+
+            & > img {
+                  width: 100%;
+            }
+      }
+
+      .nav {
+            .list {
+                  padding: 0;
+                  margin: 0 3rem 0 0;
+                  list-style: none;
+
+                  .item {
+                        display: inline-block;
+                        margin-left: 2em;
+
+                        & > a {
+                              text-decoration: none;
+                              color: $black;
+                        }
+
+                  }
+            }
+      }
+}
+
+.contacts-container {
+      position: relative;
+      min-height: calc(100vh - 227px);
+      margin-top: 130px;
+
+      .contacts {
+            width: 100%;
+            max-width: 300px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(8px);
+            border-radius: 0px 8px 0px 0px;
+            padding: 36px 32px 42px 32px;
+            font-size: 14px;
+            line-height: 171%;
+            color: $black;
+
+            a {
+                  color: $black;
+                  text-decoration: none;    
+            }
+
+            .contacts-icon {
+                  width: 32px;
+                  height: 32px;
+                  border-radius: 50%;
+                  background: #4D4D4D;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-right: 24px;
+                  flex-shrink: 0;
+            }
+
+            .contacts-item:not(:last-child) {
+                  margin-bottom: 36px;
+            }
+      }
+
+      .map-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+      }
+
+      .form-container {
+            display: flex;
+            justify-content: flex-end;
+           
+            .contact-form {
+                  width: 100%;
+                  max-width: 416px;
+                  float: right;
+                  margin-top: -91px;
+                  padding: 48px 40px;
+                  background: #FFF;
+                  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.12);
+                  border-radius: 8px;
+                  font-size: 12px;
+                  position: relative;
+      
+                  .hidden {
+                        display: none;
+                        pointer-events: none;
+                  }
+            
+                  h1 {
+                        font-weight: 700;
+                        font-size: 36px;
+                        line-height: 167%;
+                        color: #000000;
+                        margin: 0 0 1em 0;
+                  }
+      
+                  h2 {
+                        font-size: 32px;
+                        line-height: 38px;
+                        color: #000000;
+                        margin-bottom: 26px;
+                  }
+            
+                  .field-name {
+                        display: inline-block;
+                        font-weight: bold;
+                        font-size: 1em;
+                        line-height: 14px;
+                        letter-spacing: 0.08em;
+                        text-transform: uppercase;
+                        color: #484848;
+                        margin: 0 0 8px 0;
+                  }
+            
+                  .label {
+                        cursor: pointer;
+                  }
+      
+                  .fields-wrapper.disabled {
+                        opacity: 0.4;
+                              pointer-events: none;
+                  }
+            
+                  .field-wrapper {
+                        position: relative;
+      
+                        .field, .select-field {
+                              @include placeholder;
+                              width: 100%;
+                              height: 3em;
+                              line-height: 3em;
+                              padding: 0 16px;
+                              font-weight: normal;
+                              font-size: 16px;
+                              color: $black;
+                              border: 1px solid #EBEBEB;
+                              border-radius: 0.25em;
+                              margin-bottom: 28px;
+                              position: relative;
+                              outline: none;
+                              transition-duration: .3s;
+      
+                              &:focus-within {
+                                    border-left: 2px solid #5A6BFF;
+                                    padding-left: 15px;
+                              }
+      
+                              &.error {
+                                    border-color: $red;
+                              }
+                        }
+      
+                        .select-field {
+                              display: flex;
+                              justify-content: space-between;
+                              align-items: center;
+                        }
+            
+                        &.textarea {
+                              min-height: 115px;
+                        }
+      
+                        &.select-wrapper {
+                              cursor: pointer;
+                        }
+      
+                        .custom-select {
+                              position: relative;
+                              font-size: 16px;
+                              color: $black;
+                              user-select: none;
+      
+                              .select-options {
+                                    display: none;
+                                    position: absolute;
+                                    left: -3px;
+                                    right: -2px;
+                                    top: calc(100% + 1px);
+                                    z-index: 10;
+                                    padding: 12px 0;
+                                    margin: 0;
+                                    list-style: none;
+                                    background: #FFFFFF;
+                                    border: 1px solid #EBEBEB;
+                                    box-shadow: 0px 15px 46px rgba(26, 26, 29, 0.12);
+                                    border-radius: 4px;
+                                    transition-duration: 0.3s;
+      
+                                    .custom-option {
+                                          line-height: 16px;
+                                          padding: 12px 16px;
+      
+                                          &:hover, &:focus, &:active {
+                                                color: #5A6BFF;
+                                                background: #F7F7F7;
+                                          }
+      
+                                    }
+                              }
+      
+                              .select-arrow {
+                                    transition-duration: 0.3s;
+                              }
+            
+                              &.open {
+                                   .select-options {
+                                          display: block;
+                                    }
+                                    
+                                    .select-field {
+                                          border-left: 2px solid #5A6BFF;
+                                          padding-left: 15px;
+                                    }
+      
+                                    .select-arrow {
+                                          transform: rotateX(180deg);
+                                    }
+                              }
+                        }
+      
+                        .error-message {
+                              font-weight: bold;
+                              font-size: 12px;
+                              position: absolute;
+                              right: 0;
+                              bottom: calc(100% + 7px);
+                              color: $red;
+                        }
+                  }
+      
+                  .submit-button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        margin-top: 6px;
+      
+                        &:disabled {
+                              cursor: initial;
+                        }
+                  }
+            }
+      
+             // success
+             .success-container {
+                  font-size: 16px;
+                  text-align: center;
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  z-index: 100;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: column;
+                  background-color: #fff;
+                  padding: 48px 40px;
+                  border-radius: 8px;
+      
+                  p {
+                        line-height: 150%;
+                  }
+      
+                  .success-img {
+                        margin-bottom: 40px;
+                  }
+      
+                  .success-button {
+                        width: 100%;
+                        height: 52px;
+                        line-height: 100%;
+                        font-weight: bold;
+                        border: 1px solid #000000;
+                        border-radius: 4px;
+                        text-align: center;
+                        color: $black;
+                        background-color: transparent;
+                        margin-top: 5em;
+                        cursor: pointer;
+                        font-size: 1em;
+                  }
+            }
+      }
+}

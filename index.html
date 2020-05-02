@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/styles.css">
+    <title>Сontacts</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a class="logo" href="/">
+                <img src="./dist/assets/logo.svg" alt="logo">
+            </a>
+            <div class="align-center">
+                <nav class="nav">
+                    <ul class="list">
+                        <li class="item"><a href="/">How it works?</a></li>
+                        <li class="item"><a href="/">Browse</a></li>
+                        <li class="item"><a href="/">Research</a></li>
+                        <li class="item"><a href="/">About</a></li>
+                        <li class="item"><a href="/">Contacts</a></li>
+                    </ul>
+                </nav>
+                <button type="button" class="button">Sign up</button>
+            </div>
+        </header>
+    </div>
+    <main>
+        <div class="contacts-container">
+            <div class="map-container" id="map-id"></div>
+            <div class="container form-container">
+                <form id="form" class="contact-form">
+                    <h1>Contact Us</h1>
+                    <div class="fields-wrapper">
+                        <div class="field-wrapper select-wrapper">
+                            <span class="field-name">Subject</span>
+                            <div id="custom-select" class="custom-select">
+                                <div class="select-field">
+                                    <div class="selected-value" id="selected-value">Work opportunities</div>
+                                    <input  data-default="Work opportunities"  id="subject" type="hidden" name="subject" class="field" value="Work opportunities">
+                                    <img class="select-arrow" src="./dist/assets/arrow.svg" alt="arrow" />
+                                </div>
+    
+                                <ul class="select-options">
+                                    <li class="custom-option" data-value="Work opportunities">Work opportunities</li>
+                                    <li class="custom-option" data-value="Questions about product">Questions about product</li>
+                                    <li class="custom-option" data-value="Сooperation">Сooperation</li>
+                                    <li class="custom-option" data-value="Other">Other</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <label class="label" for="name">
+                            <span class="field-name">Name</span>
+                        </label>
+                        <div class="field-wrapper">
+                            <input class="field" name="name" id="name" placeholder="Enter your name..."  type="text" />
+                        </div>
+                        
+        
+                        <label class="label" for="phone">
+                            <span class="field-name">Phone number</span>
+                        </label>  
+                        <div class="field-wrapper">
+                            <input class="field" name="phone" id="phone" placeholder="Enter your phone number..."  type="text" />
+                        </div>
+                       
+                        <label class="label" for="email">
+                            <span class="field-name">Email</span> 
+                        </label>
+                        <div class="field-wrapper">
+                            <input class="field" name="email" id="email" placeholder="Enter your email..."  type="email" />
+                        </div>
+                       
+                        <label class="label" for="message">
+                            <span class="field-name">Message</span>
+                        </label>
+                        <div class="field-wrapper">
+                            <input class="field textarea" name="message" id="message" placeholder="Enter your message..."  type="text" />
+                        </div>   
+                    </div>
+                    <button type="submit" class="button submit-button" id="submit-button">Send</button>
+
+                    <!-- SUCCESS -->
+                    <div id = "success-container" class="success-container hidden">
+                        <img class="success-img" src="./dist/assets/success.svg" alt="success">
+                        <h2>We received your message!</h2>
+                        <p>Thanks for contacting us! We will get back to you ASAP</p>
+                        <button type="button" id="success-button" class="success-button">Great!</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="contacts">
+                <div class="contacts-item align-center">
+                    <div class="contacts-icon">
+                        <img src="./dist/assets/location.svg" alt="location">
+                    </div>
+                    <p>888 Brannan Street, <br>in San Francisco, California</p>
+                </div>
+                <div class="contacts-item align-center">
+                    <div class="contacts-icon">
+                        <img src="./dist/assets/phone.svg" alt="phone">
+                    </div>
+                    <a href="tel:+10390320384">+1 (039) 032 03 84</a>
+                </div>
+                <div class="contacts-item align-center">
+                    <div class="contacts-icon">
+                        <img src="./dist/assets/email.svg" alt="email">
+                    </div>
+                    <a href="mailto:info@airbnb.com">info@airbnb.com</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <script src = 'dist/js/script.js'></script>
+</body>
+</html>
